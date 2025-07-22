@@ -1,42 +1,77 @@
 # ComfyUI-ImageProcessUtilities
-This is a collection of custom nodes for ComfyUI designed for image processing workflows. It is useful for high-resolution rendering, complex inpainting, and composition tasks that require breaking down and reassembling images.
 
-Key Features
-Seamless Image Tiling & Untiling: Process huge images by breaking them into overlapping tiles and perfectly reassembling them. The process is non-destructive, using padding instead of cropping to preserve all image data.
+A collection of **custom nodes for [ComfyUI](https://github.com/comfyanonymous/ComfyUI)** designed to enhance image processing workflows — especially for high-resolution rendering, complex inpainting, tiling, and batch manipulation tasks.
 
-Coordinate-Based Transforms: Precisely crop and paste images using a flexible coordinate system. Ideal for targeted inpainting or complex composites.
+---
 
-Modular Coordinate System: Convert strings to coordinates and combine/split coordinate lists, enabling complex and dynamic workflows.
+## 🔑 Key Features
 
-Batch Manipulation Utilities: Easily reorder or modify image batches for tasks like creating animations and video processing
+- **🧩 Seamless Image Tiling & Untiling**  
+  Process huge images by breaking them into overlapping tiles and perfectly reassembling them. This is **non-destructive**, using padding instead of cropping to preserve all image data.
 
-  **#Nodes**
-**Tiling**
-Tile Image (ImageTiler): Splits an image into a batch of overlapping tiles. Uses non-destructive padding to handle images of any size.
+- **📐 Coordinate-Based Transforms**  
+  Precisely crop and paste images using a flexible coordinate system. Ideal for targeted inpainting or complex composites.
 
-Untile Image (ImageUntiler): Reassembles a batch of tiles into a single, seamless final image, correctly cropping it to the original dimensions.
+- **🔁 Modular Coordinate System**  
+  Convert strings to coordinates and combine/split coordinate lists, enabling complex and dynamic workflows.
 
-**Transform**
-Crop Image by Coords (CropByCoords): Crops one or more regions from an image or image batch at specified coordinates.
+- **📦 Batch Manipulation Utilities**  
+  Reorder or modify image batches — useful for animations, video workflows, or layout transforms.
 
-Paste Image by Coords (PasteByCoords): Pastes insert images onto a base image at specified coordinates, with optional edge feathering for smooth blending.
+---
 
-Reorder Batch (ReorderBatch): Manipulates the order of images in a batch with modes like reverse, ping-pong, and row_to_column.
+## 🧱 Nodes
 
-**Coordinates**
-String to Integers (StringToIntegers): Converts a comma-separated string (e.g., "128, 256, 512") into a list of integers.
+### 🟦 Tiling
 
-Combine Coords (CombineCoords): Combines separate lists of X and Y coordinates into a single COORDS output.
+- **Tile Image (`ImageTiler`)**  
+  Splits an image into a batch of overlapping tiles. Uses non-destructive padding to handle images of any size.
 
-Split Coords (SplitCoords): Splits a COORDS input back into separate X and Y integer lists.
+- **Untile Image (`ImageUntiler`)**  
+  Reassembles a batch of tiles into a single, seamless image — correctly cropping it to original dimensions.
 
-**Installation**
-Navigate to your ComfyUI/custom_nodes/ directory.
+---
 
-Clone this repository: git clone <repository_url>
+### 🔲 Transform
 
-Restart ComfyUI.
+- **Crop Image by Coords (`CropByCoords`)**  
+  Crops one or more regions from an image or batch at specified coordinates.
 
-Example: High-Resolution Upscaling Workflow
+- **Paste Image by Coords (`PasteByCoords`)**  
+  Pastes insert images onto a base image at specified coordinates. Supports optional **edge feathering** for smooth blending.
+
+- **Reorder Batch (`ReorderBatch`)**  
+  Changes the order of images in a batch. Modes include:
+  - `reverse`
+  - `ping-pong`
+  - `row_to_column`
+
+---
+
+### 🧮 Coordinates
+
+- **String to Integers (`StringToIntegers`)**  
+  Converts a comma-separated string like `"128, 256, 512"` into a list of integers.
+
+- **Combine Coords (`CombineCoords`)**  
+  Combines two lists of X and Y values into a `COORDS` structure.
+
+- **Split Coords (`SplitCoords`)**  
+  Splits a `COORDS` input into two lists: X and Y.
+
+---
+
+## ⚙️ Installation
+
+1. Navigate to your ComfyUI `custom_nodes/` directory:
+
+   ```bash
+   cd ComfyUI/custom_nodes/
+
+2. Clone this repository: git clone <repository_url>
+
+3. Restart ComfyUI.
+
+Example usecase: High-Resolution Upscaling Workflow
 
 This allows you to upscale images that would otherwise exceed your VRAM limits.
